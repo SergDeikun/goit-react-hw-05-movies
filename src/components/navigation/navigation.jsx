@@ -1,12 +1,13 @@
-// import { Link } from 'react-router-dom';
-import { Link } from './navigation.styled';
+import { Link, Header } from './navigation.styled';
 
 const Navigation = () => {
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/movies">Movies</Link>
-    </nav>
+    <Header>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
+      </nav>
+    </Header>
   );
 };
 

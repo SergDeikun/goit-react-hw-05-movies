@@ -1,6 +1,6 @@
 const Movies = () => {
   return (
-    <form action="">
+    <form>
       <input type="text" />
     </form>
   );
