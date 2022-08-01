@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import { fetchMmovieDetails } from '../services/api';
-import { qwerty } from './movieDetails.styled';
+// import { qwerty } from './movieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -22,8 +22,10 @@ const MovieDetails = () => {
     <>
       {movie && (
         <div>
-          <Link to={`/`}>Go back</Link>
-          <qwerty>img</qwerty>
+          <button type="button" to={`/`}>
+            Go back
+          </button>
+          {/* <qwerty>img</qwerty> */}
           {/* <img src={movie.poster_path} alt={movie.title} width={300} /> */}
           <div>
             <h2>{movie.title}</h2>
