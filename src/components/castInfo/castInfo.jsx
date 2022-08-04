@@ -6,12 +6,11 @@ const CastInfo = ({ data }) => {
     <>
       <CastList>
         {data.map(({ id, profile_path, name, character }) => {
-          console.log(profile_path);
           return (
             <li key={id}>
               <img
                 src={
-                  // profile_path &&
+                  profile_path &&
                   `https://image.tmdb.org/t/p/w200/${profile_path}`
                 }
                 alt={name}
