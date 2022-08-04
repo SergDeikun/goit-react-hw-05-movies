@@ -1,16 +1,24 @@
 import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import MoviesItem from 'components/moviesItem/moviesItem';
-
-const MoviesList = ({ movies }) => {
+const MoviesList = ({ data }) => {
   return (
     <ul>
-      {movies.map(({ original_title, id }) => {
-        return <MoviesItem key={id} title={original_title} />;
+      {data.map(({ title, id }) => {
+        return (
+          <li key={id}>
+            <Link to={`/movies/${id}`}>{title}</Link>
+          </li>
+        );
       })}
       <Outlet />
     </ul>
   );
+};
+
+MoviesList.propTypes = {
+  data: PropTypes.array.isRequired,
 };
 
 export default MoviesList;

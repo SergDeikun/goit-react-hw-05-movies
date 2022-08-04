@@ -31,6 +31,6 @@ export const GenreItem = styled.li`
   margin-right: 10px;
 `;
 
-export const WrapLink = styled.div`
-  border-bottom: 1px solid gray;
-`;
+// export const WrapLink = styled.div`
+//   border-bottom: 1px solid gray;
+// `;

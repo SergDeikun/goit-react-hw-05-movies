@@ -18,8 +18,6 @@ export const fetchSearchMovies = async searchQuery => {
   return response.data;
 };
 
-//
-
 export const fetchMmovieDetails = async id => {
   const response = await axios(`/movie/${id}?api_key=${KEY}&language=en-US`);
 

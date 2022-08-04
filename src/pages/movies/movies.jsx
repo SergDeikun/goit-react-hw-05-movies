@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
+import SearchMovies from 'components/searchMovies/searchMovies';
 import { fetchSearchMovies } from '../../services/api';
+import MoviesList from 'components/moviesList/moviesList';
 
 const Movies = () => {
   const [searchParams, seatSerchParams] = useSearchParams();
@@ -30,20 +32,9 @@ const Movies = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="query" placeholder="Search movies" />
-        <button type="submit">Search</button>
-      </form>
+      <SearchMovies onSubmit={handleSubmit} />
 
-      <ul>
-        {movies.map(({ id, original_title }) => {
-          return (
-            <li key={id}>
-              <Link to={`/movies/${id}`}>{original_title}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      <MoviesList data={movies} />
     </div>
   );
 };

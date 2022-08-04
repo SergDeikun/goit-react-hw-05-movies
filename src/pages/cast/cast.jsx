@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { fetchCastMovie } from 'services/api';
-import { CastList, Text } from './cast.styled';
+import CastInfo from 'components/castInfo/castInfo';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -14,29 +14,7 @@ const Cast = () => {
     });
   }, [movieId]);
 
-  return (
-    <>
-      {cast && (
-        <CastList>
-          {cast.map(({ id, profile_path, name, character }) => {
-            return (
-              <li key={id}>
-                <img
-                  src={
-                    profile_path &&
-                    `https://image.tmdb.org/t/p/w200/${profile_path}`
-                  }
-                  alt={name}
-                />
-                <Text>{name}</Text>
-                <Text>Character: {character}</Text>
-              </li>
-            );
-          })}
-        </CastList>
-      )}
-    </>
-  );
+  return <>{cast && <CastInfo data={cast} />}</>;
 };
 
 export default Cast;
