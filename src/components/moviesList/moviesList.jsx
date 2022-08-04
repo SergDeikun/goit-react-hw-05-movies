@@ -1,3 +1,5 @@
+import { Outlet } from 'react-router-dom';
+
 import MoviesItem from 'components/moviesItem/moviesItem';
 
 const MoviesList = ({ movies }) => {
@@ -6,6 +8,7 @@ const MoviesList = ({ movies }) => {
       {movies.map(({ original_title, id }) => {
         return <MoviesItem key={id} title={original_title} />;
       })}
+      <Outlet />
     </ul>
   );
 };

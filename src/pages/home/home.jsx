@@ -19,14 +19,14 @@ const Home = () => {
         <ul>
           {movies.map(({ title, id }) => {
             return (
-              <li key={id}>
+              <li key={id} title={title} id={id}>
                 <Link to={`/movies/${id}`}>{title}</Link>
               </li>
             );
           })}
         </ul>
       )}
-      {/* {movies && MoviesList} */}
+      {/* {movies && <MoviesList data={movies} />} */}
     </>
   );
 };
