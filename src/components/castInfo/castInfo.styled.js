@@ -9,3 +9,8 @@ export const Text = styled.p`
   letter-spacing: 0.03em;
   font-size: 16px;
 `;
+
+export const Avatar = styled.img`
+  width: 200px;
+  height: 300px;
+`;

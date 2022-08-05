@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import MovieCard from 'components/movieCard/movieCard';
 import AdditionalInfo from 'components/additionalInfo/additionalinfo';
+import GoBack from 'components/goBack/goBack';
 
 import { fetchMmovieDetails } from '../../services/api';
 
@@ -10,6 +11,8 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
+  // const location = useLocation();
+  // const backLinkHref = location.state?.from ?? '/movies';
 
   useEffect(() => {
     fetchMmovieDetails(movieId).then(data => {
@@ -18,17 +21,16 @@ const MovieDetails = () => {
   }, [movieId]);
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate('/');
   };
 
   return (
     <>
       {movie && (
         <div>
-          <button type="button" onClick={handleGoBack}>
-            Go back
-          </button>
-          <MovieCard data={movie} onClick={handleGoBack} />
+          <GoBack goBack={handleGoBack} />
+          <MovieCard data={movie} />
+
           <AdditionalInfo movieId={movieId} />
         </div>
       )}
