@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { CastList, Text, Avatar } from './castInfo.styled';
 import defaultImg from '../../images/defaultImg.png';
 
+const URL_IMG = 'https://image.tmdb.org/t/p/w200/';
+
 const CastInfo = ({ data }) => {
   return (
     <>
@@ -10,11 +12,7 @@ const CastInfo = ({ data }) => {
           return (
             <li key={id}>
               <Avatar
-                src={
-                  profile_path
-                    ? `https://image.tmdb.org/t/p/w200/${profile_path}`
-                    : defaultImg
-                }
+                src={profile_path ? URL_IMG + profile_path : defaultImg}
                 alt={name}
               />
               <Text>{name}</Text>
